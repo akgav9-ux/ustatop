@@ -1,0 +1,83 @@
+{
+  "menu": {
+  "home": "Bosh sahifa",
+  "orders": "Buyurtmalar",
+  "myOrders": "Mening buyurtmalarim", 
+  "masters": "Ustalar",
+  "messages": "Xabarlar",
+  "profile": "Profil"
+},
+"topbar": {
+  "search": "Usta yoki xizmatni qidirish",
+  "createOrder": "Buyurtma yaratish"
+},
+"hero": {
+  "title": "Har qanday ish uchun ishonchli ustani toping",
+  "subtitle": "Minglab mutaxassislar sizga yaqin. Tez, qulay va xavfsiz.",
+  "create": "Buyurtma yaratish"
+},
+"categories": {
+  "title": "Kategoriyalar",
+  "repair": "Ta'mirlash",
+  "plumbing": "Santexnika",
+  "electric": "Elektrika",
+  "finishing": "Bezash",
+  "furniture": "Mebel",
+  "other": "Boshqa"
+},
+"howItWorks": {
+  "title": "Bu qanday ishlaydi?",
+  "step1Title": "Buyurtma yarating",
+  "step1Desc": "Nima qilish kerakligini yozing",
+  "step2Title": "Javoblarni oling",
+  "step2Desc": "Ustalar o‘z takliflarini yuboradi",
+  "step3Title": "Eng yaxshisini tanlang",
+  "step3Desc": "Reyting va fikrlarni ko‘ring",
+  "step4Title": "Ish bajarildi!",
+  "step4Desc": "Ustaga fikr qoldiring"
+},
+"masters": {
+  "title": "Tavsiya etilgan ustalar",
+  "viewAll": "Barchasini ko‘rish",
+  "online": "Onlayn",
+  "recently": "Yaqinda faol bo‘lgan"
+},
+"ordersBlock": {
+  "title": "Yangi buyurtmalar",
+  "viewAll": "Barchasini ko‘rish",
+  "responses": "Javoblar"
+},
+"ordersPage": {
+  "title": "Barcha buyurtmalar",
+  "active": "faol buyurtma",
+  "noOrders": "Hozircha buyurtmalar yo‘q",
+  "noOrdersDesc": "Yangi buyurtmalar keyinroq paydo bo‘ladi.",
+  "responses": "Javoblar",
+  "category": "Kategoriya"
+},
+"profilePage": {
+  "title": "Mening profilim",
+  "name": "Ism",
+  "email": "Elektron pochta",
+  "logout": "Chiqish",
+  "notAuthorized": "Siz tizimga kirmagansiz",
+  "loginLink": "Kirish"
+},
+"messagesPage": {
+  "title": "Xabarlar",
+  "empty": "Sizda hali xabarlar yo'q",
+  "emptyDesc": "Ustalar bilan hoziroq muloqotni boshlang."
+},
+"orderDetails": {
+  "back": "Ro'yxatga qaytish",
+  "budget": "Budjet",
+  "description": "Tavsif",
+  "district": "Tuman",
+  "respond": "Javob berish"
+},
+"myOrders": {
+  "title": "Mening buyurtmalarim",
+  "noOrders": "Sizda hali buyurtmalar yo'q",
+  "createNow": "Buyurtma yaratish"
+}
+}
