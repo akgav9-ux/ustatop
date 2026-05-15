@@ -7,7 +7,10 @@ import RespondForm from "@/components/shared/RespondForm"; // ✅ Импорти
 export default async function OrderDetailsPage({
   params,
 }: {
-  params: Promise<{ locale: string; id: string }>;
+  params: Promise<{
+    locale: string;
+    id: string;
+  }>;
 }) {
   const { locale, id } = await params;
   const t = await getTranslations("orderDetails");
@@ -26,7 +29,7 @@ export default async function OrderDetailsPage({
         <p className="mt-4 text-gray-600">{order.description}</p>
         
         {/* ✅ Вставляем форму и передаем orderId */}
-        <RespondForm orderId={order.id} locale={locale} />
+        <RespondForm orderId={order.id} />
       </div>
     </div>
   );
