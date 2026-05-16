@@ -3,28 +3,32 @@ import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
+
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { name, email, password } = body;
+    const { name, email, password } = await req.json();
 
-    // Проверка: пользователь уже существует?
+    if (!name || !email || !password) {
+      return NextResponse.json(
+        { error: "Missing fields" },
+        { status: 400 }
+      );
+    }
+
     const existingUser = await prisma.user.findUnique({
       where: { email }
     });
 
     if (existingUser) {
       return NextResponse.json(
-        { error: "Пользователь с таким email уже зарегистрирован" },
+        { error: "User already exists" },
         { status: 400 }
       );
     }
 
-    // Хешируем пароль
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    // Создаем пользователя ПРЯМО в Neon PostgreSQL
-    const user = await prisma.user.create({
+    await prisma.user.create({
       data: {
         name,
         email,
@@ -32,18 +36,14 @@ export async function POST(req: Request) {
       }
     });
 
-    console.log("✅ Новый пользователь создан:", user.email);
-
     return NextResponse.json({ success: true });
 
   } catch (error) {
-    console.error("❌ FULL ERROR:", error);
+    console.error("REGISTER ERROR:", error);
 
     return NextResponse.json(
-      {
-      error: error instanceof Error ? error.message : String(error)
-    },
-    { status: 500 }
-  );
-}
+      { error: "Internal server error" },
+      { status: 500 }
+    );
+  }
 }
