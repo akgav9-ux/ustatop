@@ -59,15 +59,16 @@ export default function MainLayout({
                 active={pathname === `/${locale}/messages`}
               />
               <SidebarItem
-                href={`/${locale}/profile`}
+                href={`/${locale}/login`}
                 title={t("profile")}
                 icon={<Heart size={20} />}
-                active={pathname === `/${locale}/profile`}
+                active={pathname === `/${locale}/login` || pathname === `/${locale}/profile`}
               />
+
               <SidebarItem
                 href={`/${locale}/profile/my-orders`}
                 title={t("myOrders")}
-                icon={<ClipboardList size={20} />}
+  i             con={<ClipboardList size={20} />}
                 active={pathname === `/${locale}/profile/my-orders`}
               />
             </nav>
