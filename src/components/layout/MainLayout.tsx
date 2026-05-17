@@ -64,7 +64,6 @@ export default function MainLayout({
                 icon={<Heart size={20} />}
                 active={pathname === `/${locale}/login` || pathname === `/${locale}/profile`}
               />
-
               <SidebarItem
                 href={`/${locale}/profile/my-orders`}
                 title={t("myOrders")}
