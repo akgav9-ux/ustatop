@@ -1,13 +1,12 @@
 import { prisma } from "@/lib/prisma";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default async function Page({ params }: Props) {
-  const { id } = params;
+  const { id } = await params;
 
-  // 1️⃣ Найти категорию по ID
   const category = await prisma.category.findUnique({
     where: { id },
   });
@@ -16,7 +15,6 @@ export default async function Page({ params }: Props) {
     return <div style={{ padding: 40 }}>Категория не найдена</div>;
   }
 
-  // 2️⃣ Найти заявки
   const orders = await prisma.order.findMany({
     where: {
       categoryId: category.id,
