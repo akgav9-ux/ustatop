@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "UstaTop",
@@ -8,14 +9,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ru">
       <body className="bg-gray-50 text-gray-900">
-        {children}
-    </body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
