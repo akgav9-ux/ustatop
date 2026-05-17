@@ -23,9 +23,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         if (!isPasswordCorrect) return null;
 
-        return { id: user.id, name: user.name, email: user.email, role: user.role };
-      },
-    }),
+        return {
+          id: user.id,
+          name: user.name,
+          email: user.email
+        };
+      }),
   ],
   callbacks: {
     async jwt({ token, user }) {
