@@ -59,10 +59,16 @@ export default function MainLayout({
                 active={pathname === `/${locale}/messages`}
               />
               <SidebarItem
+                href={`/${locale}/profile`}
+                title={t("profile")}
+                icon={<Heart size={20} />}
+                active={pathname === `/${locale}/orders`}
+              />
+              <SidebarItem
                 href={`/${locale}/profile/my-orders`}
                 title={t("myOrders")} // ✅ Теперь здесь правильная переменная перевода
                 icon={<ClipboardList size={20} />}
-                active={pathname === `/${locale}/orders`}
+                active={pathname === `/${locale}/profile/my-orders`}
               />
             </nav>
           </div>
