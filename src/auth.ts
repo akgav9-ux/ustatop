@@ -45,7 +45,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (user) {
         token.id = user.id;
       }
-
       return token;
     },
 
@@ -53,7 +52,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (session.user) {
         session.user.id = token.id as string;
       }
-
       return session;
     },
   },
@@ -66,5 +64,5 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     signIn: "/ru/login",
   },
 
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET, // ✔ оставляем, но env должен быть 100%
 });
