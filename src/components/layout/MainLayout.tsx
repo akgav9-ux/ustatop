@@ -62,7 +62,7 @@ export default function MainLayout({
                 href={`/${locale}/profile/my-orders`}
                 title={t("myOrders")} // ✅ Теперь здесь правильная переменная перевода
                 icon={<ClipboardList size={20} />}
-                active={pathname === `/${locale}/profile/my-orders`}
+                active={pathname === `/${locale}/orders`}
               />
             </nav>
           </div>
