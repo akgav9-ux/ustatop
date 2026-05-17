@@ -1,15 +1,15 @@
 import { prisma } from "@/lib/prisma";
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: { id: string };
 };
 
 export default async function Page({ params }: Props) {
-  const { slug } = await params;
+  const { id } = params;
 
-  // 1️⃣ Найти категорию
+  // 1️⃣ Найти категорию по ID
   const category = await prisma.category.findUnique({
-    where: { slug },
+    where: { id },
   });
 
   if (!category) {
