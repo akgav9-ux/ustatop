@@ -6,12 +6,20 @@ import { prisma } from "@/lib/prisma";
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     Credentials({
-      credentials: { email: {}, password: {} },
+      credentials: {
+        email: {},
+        password: {},
+      },
+
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) return null;
+        if (!credentials?.email || !credentials?.password) {
+          return null;
+        }
 
         const user = await prisma.user.findUnique({
-          where: { email: credentials.email as string },
+          where: {
+            email: credentials.email as string,
+          },
         });
 
         if (!user) return null;
@@ -26,21 +34,37 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         return {
           id: user.id,
           name: user.name,
-          email: user.email
+          email: user.email,
         };
-      }),
+      },
+    }),
   ],
+
   callbacks: {
     async jwt({ token, user }) {
-      if (user) token.id = user.id;
+      if (user) {
+        token.id = user.id;
+      }
+
       return token;
     },
+
     async session({ session, token }) {
-      if (session.user) session.user.id = token.id as string;
+      if (session.user) {
+        session.user.id = token.id as string;
+      }
+
       return session;
     },
   },
-  session: { strategy: "jwt" },
-  pages: { signIn: "/ru/login" },
+
+  session: {
+    strategy: "jwt",
+  },
+
+  pages: {
+    signIn: "/ru/login",
+  },
+
   secret: process.env.NEXTAUTH_SECRET,
 });
